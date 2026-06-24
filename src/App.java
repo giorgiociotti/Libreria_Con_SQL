@@ -7,7 +7,8 @@ public class App {
         AutoreDao autoreDao = AutoreDao.getInstance();
         autoreDao.save(autore);
         System.out.println("Autore salvato: " + autore);
-        autoreDao.delete(autore.getId());
-        System.out.println("Autore eliminato: " + autore);
+       /*autoreDao.delete(autore.getId());
+        System.out.println("Autore eliminato: " + autore);*/
+      
     }
 }

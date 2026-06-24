@@ -31,7 +31,7 @@ public class AutoreDao {
             ps.setNString(2, autore.getCognome());
             ps.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Errore nell'inserimento dell'autore"+e.getMessage());
+            System.out.println("Errore nell'inserimento dell'autore" + e.getMessage());
         } finally {
             database.closeConnection();
         }
@@ -45,9 +45,26 @@ public class AutoreDao {
             ps.setLong(1, id);
             ps.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Errore nella cancellazione dell'autore"+e.getMessage());
+            System.out.println("Errore nella cancellazione dell'autore" + e.getMessage());
         } finally {
             database.closeConnection();
         }
     }
+
+    public void updateById(Long id, Autore autore) {
+        database.openConnection();
+        String update = "UPDATE autori SET nome = ?, cognome = ? WHERE id = ?";
+        try (PreparedStatement ps = database.getConnection().prepareStatement(update)) {
+            ps.setNString(1, autore.getNome());
+            ps.setNString(2, autore.getCognome());
+            ps.setLong(3, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Errore nell'aggiornamento dell'autore" + e.getMessage());
+        } finally {
+            database.closeConnection();
+        }
+    }
+
+    public Autore readAutore
 }
