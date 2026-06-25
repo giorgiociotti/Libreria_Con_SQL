@@ -47,4 +47,14 @@ public class AutoreService {
         autoreDao.update(a);
     }
 
-}
+    public void eliminareAutore(Long id) {
+        if (id <= 0 || id == null) {
+            throw new IllegalArgumentException("L'id non può essere null o minore" +id);
+        }
+        Optional<Autore> optionalAutore = autoreDao.findById(id);
+        if (optionalAutore.isEmpty()) {
+            return;
+        }
+        autoreDao.delete(id);
+    }
+ }
