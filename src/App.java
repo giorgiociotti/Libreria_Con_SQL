@@ -39,5 +39,7 @@ public class App {
 
         optional = ad.findById(idAutoreDaCercare);
         System.out.println("autore aggiornato: " + optional.get().toString());
+
+        
     }
 }
