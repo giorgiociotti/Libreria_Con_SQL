@@ -33,7 +33,7 @@ public class App {
         // ad.update(autoreDaAggiornare);
 
         // System.out.println(ad.readAll());
-        Long idAutoreDaCercare = 4L;
+        Long idAutoreDaCercare = 22L;
         Optional<Autore> optional = ad.findById(idAutoreDaCercare);
         Autore autoreDaAggiornare = optional.get();
         System.out.println("autore trovato: " + autoreDaAggiornare.toString());
