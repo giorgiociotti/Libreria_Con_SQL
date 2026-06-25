@@ -112,34 +112,34 @@ public class AutoreDao {
 
     }
 
-    public Optional<Autore> findById(Long id){
+    public Optional<Autore> findById(Long id) {
         database.openConnection();
         Autore autore = null;
-        //creo il ps
+        // creo il ps
         Connection connection = database.getConnection();
-        try(PreparedStatement ps = connection.prepareStatement(readById)){ 
-          ps.setLong(1,id); 
-          
-          try(ResultSet rs = ps.executeQuery()) {
-            
-            while(rs.next()){
-               
-                Long idAutore = rs.getLong("id");
-                
-                String nomeAutore = rs.getString("nome");
-                String cognomeAutore = rs.getString("cognome");
-               
-                autore = new Autore(idAutore, nomeAutore, cognomeAutore);
+        try (PreparedStatement ps = connection.prepareStatement(readById)) {
+            ps.setLong(1, id);
+
+            try (ResultSet rs = ps.executeQuery()) {
+
+                while (rs.next()) {
+
+                    Long idAutore = rs.getLong("id");
+
+                    String nomeAutore = rs.getString("nome");
+                    String cognomeAutore = rs.getString("cognome");
+
+                    autore = new Autore(idAutore, nomeAutore, cognomeAutore);
+                }
+            } catch (SQLException e) {
+                System.out.println("Errore nel readById di AutoreDao: " + e.getMessage());
             }
-          }catch(SQLException e){
-            System.out.println("Errore nel readById di AutoreDao: " + e.getMessage());
-          }
-        }catch(SQLException e){ //catch del primo try
-            System.out.println("errore nel readByID in autoreDao nella creazione del ps: " 
-            + e.getMessage());
-        }finally{
+        } catch (SQLException e) { // catch del primo try
+            System.out.println("errore nel readByID in autoreDao nella creazione del ps: "
+                    + e.getMessage());
+        } finally {
             database.closeConnection();
-        } 
+        }
         return Optional.ofNullable(autore);
     }
 }

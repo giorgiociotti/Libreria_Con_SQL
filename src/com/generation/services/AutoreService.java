@@ -43,6 +43,7 @@ public class AutoreService {
         Autore a = optionalAutore.get();
         a.setNome(nome);
         a.setCognome(cognome);
+
         autoreDao.update(a);
     }
 

@@ -5,7 +5,6 @@ public class Autore extends Entity {
     private String nome;
     private String cognome;
 
-    
     public Autore(Long id, String nome, String cognome) {
         super(id);
         this.nome = nome;
