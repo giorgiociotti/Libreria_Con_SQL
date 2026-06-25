@@ -1,7 +1,12 @@
 package com.generation.models;
 
 public abstract class Entity {
-    public Long id;
+
+    private Long id;
+
+    public Entity(Long id) {
+        this.id = id;
+    }
 
     public Long getId() {
         return id;
@@ -10,9 +15,10 @@ public abstract class Entity {
     public void setId(Long id) {
         this.id = id;
     }
- @Override
+
+    @Override
     public String toString() {
-        return "Entity{" + "id=" + id +'}';
-                
+        return "Entity [id=" + id + "]";
     }
+
 }
