@@ -1,3 +1,5 @@
+import java.util.Optional;
+
 import com.generation.dao.AutoreDao;
 import com.generation.models.Autore;
 
@@ -27,9 +29,20 @@ public class App {
         // non avavndo ancora il metodo di ricerca ne creo uno con un id che esiste
         // nella tabella
         // cambio ad esempio solo il cognome
-        Autore autoreDaAggiornare = new Autore(12L, "Jean", "Claude");
+        // Autore autoreDaAggiornare = new Autore(12L, "Jean", "Claude");
+        // ad.update(autoreDaAggiornare);
+
+        // System.out.println(ad.readAll());
+        Long idAutoreDaCercare = 4L;
+        Optional<Autore> optional = ad.findById(idAutoreDaCercare);
+        Autore autoreDaAggiornare = optional.get();
+        System.out.println("autore trovato: " + autoreDaAggiornare.toString());
+
+        autoreDaAggiornare.setCognome("Franco");
+
         ad.update(autoreDaAggiornare);
 
-        System.out.println(ad.readAll());
+        optional = ad.findById(idAutoreDaCercare);
+        System.out.println("autore aggiornato: " + optional.get().toString());
     }
 }
