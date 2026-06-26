@@ -36,7 +36,7 @@ public class AutoreService {
         if (id <= 0 || id == null) {
             throw new IllegalArgumentException("L'id non può essere null o minore o uguale a zero");
         }
-        Optional<Autore> optionalAutore = autoreDao.findById(id);
+        Optional<Autore> optionalAutore = Optional.ofNullable(autoreDao.findById(id));
         if (optionalAutore.isEmpty()) {
             return;
         }
@@ -51,7 +51,7 @@ public class AutoreService {
         if (id <= 0 || id == null) {
             throw new IllegalArgumentException("L'id non può essere null o minore" +id);
         }
-        Optional<Autore> optionalAutore = autoreDao.findById(id);
+        Optional<Autore> optionalAutore = Optional.ofNullable(autoreDao.findById(id));
         if (optionalAutore.isEmpty()) {
             return;
         }
