@@ -1,10 +1,10 @@
 package com.generation.models;
 
-public class Autore extends Entity {
+public class Autore extends Entity{
 
     private String nome;
     private String cognome;
-
+    
     public Autore(Long id, String nome, String cognome) {
         super(id);
         this.nome = nome;
@@ -32,4 +32,7 @@ public class Autore extends Entity {
         return "Autore [nome=" + nome + ", cognome=" + cognome + ", id =" + getId() + "]";
     }
 
+    
+
+    
 }

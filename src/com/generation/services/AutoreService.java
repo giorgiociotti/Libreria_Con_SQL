@@ -21,7 +21,7 @@ public class AutoreService {
         return instance;
     }
 
-    // fare le CRUD
+    
     public void aggiungiAutore(String nome, String cognome) {
         Autore autore = new Autore(0L, nome, cognome);
         autoreDao.save(autore);
